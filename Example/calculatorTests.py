@@ -15,9 +15,12 @@ class CalculatorTests(CalculatorTestFixture):
 
     def testFactorial_invalid(self):
         assert self.calculator.factorial(-1) == None, 'Incorrect factorial of -1'
+    def testFail(self):
+        assert self.calculator.factorial(0) == 0, 'Factorial of 0 is not 0'
 
 class CalculatorTestSuite(unittest.TestSuite):
     def __init__(self):
         unittest.TestSuite.__init__(self, map(CalculatorTests,
                                         ["testFactorial_5",
-                                        "testFactorial_invalid"]))
+                                        "testFactorial_invalid",
+                                        "testFail"]))
